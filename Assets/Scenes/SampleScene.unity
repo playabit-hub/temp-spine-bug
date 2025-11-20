@@ -426,6 +426,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1288141183}
     m_Modifications:
+    - target: {fileID: 2828076642073784105, guid: c704c9b8e88d944cf8ceb70e84f0bed4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3623917941519283752, guid: c704c9b8e88d944cf8ceb70e84f0bed4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -469,6 +473,10 @@ PrefabInstance:
     - target: {fileID: 4444944196667853080, guid: c704c9b8e88d944cf8ceb70e84f0bed4, type: 3}
       propertyPath: m_Name
       value: PropellerItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444944196667853080, guid: c704c9b8e88d944cf8ceb70e84f0bed4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4652968270082221791, guid: c704c9b8e88d944cf8ceb70e84f0bed4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

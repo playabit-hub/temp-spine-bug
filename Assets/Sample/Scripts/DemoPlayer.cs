@@ -16,15 +16,16 @@ public class DemoPlayer : MonoBehaviour
     {
         while (true)
         {
+
             //Simulate get from pool
             fakeItemFromPool.transform.parent = null;
             await fakeItemFromPool.PlayCreationClip(destroyCancellationToken);
-            //Mimic static view
-            await UniTask.Delay(2000);
+            
+            await UniTask.Delay(3000);
             //Mimic removal
             fakeItemFromPool.transform.parent = fakePool.transform;
             fakeItemFromPool.OnBackToPool();
-            await UniTask.Delay(1000);
+            await UniTask.Delay(3000);
         }
     }
 }
