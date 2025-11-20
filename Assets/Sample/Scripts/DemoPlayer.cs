@@ -26,11 +26,11 @@ public class DemoPlayer : MonoBehaviour
             fakeItemFromPool.transform.parent = null;
             await fakeItemFromPool.PlayCreationClip(destroyCancellationToken);
 
-            await UniTask.Delay(3000);
+            await UniTask.Delay(1000);
             //Mimic removal
             fakeItemFromPool.transform.parent = fakePool.transform;
             fakeItemFromPool.OnBackToPool();
-            await UniTask.Delay(3000);
+            await UniTask.Delay(1000);
         }
     }
 }
