@@ -31,8 +31,8 @@ public class FakePropellerItem : MonoBehaviour
     private void ResetAnimation()
     {
         animator.Stop();
-
         animator.JumpToFinalFrame(resetAnimationClip);
+        skeletonAnimation.ClearStateSafe();
     }
 
 
