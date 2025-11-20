@@ -360,7 +360,7 @@ Transform:
   - {fileID: 841840924623851775}
   - {fileID: 4855424171217962131}
   m_Father: {fileID: 3623917941519283752}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 9.793}
 --- !u!111 &6716422804333657586
 Animation:
   m_ObjectHideFlags: 0
@@ -395,6 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3623917941519283752}
+  - component: {fileID: 2113831179856362590}
   m_Layer: 0
   m_Name: PropellerItem
   m_TagString: Untagged
@@ -419,6 +420,23 @@ Transform:
   - {fileID: 4652968270082221791}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2113831179856362590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444944196667853080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1afff933e1319445ab5f26e52815366f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FakePropellerItem
+  animator: {fileID: 6716422804333657586}
+  creationAnimationClip: {fileID: 7400000, guid: 41de54a1b9fc54ccda4f9e00b2f33c91, type: 2}
+  resetAnimationClip: {fileID: 7400000, guid: 27e1c7d02f3974bacba5828a80e94ad2, type: 2}
+  skeletonAnimation: {fileID: 1110641881845464317}
+  creationSpineReference: {fileID: 11400000, guid: fdc9294d3e5ab4df29e0c0584260ec55, type: 2}
 --- !u!1 &4988113506843516741
 GameObject:
   m_ObjectHideFlags: 0
