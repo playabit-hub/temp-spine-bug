@@ -52,6 +52,7 @@ namespace Spine.Unity
             "If enabled, the Skeleton mesh will be updated only on the same frame when the animation and skeleton are updated. Disable this or call SkeletonAnimation.LateUpdate yourself if you are modifying the Skeleton using other components that don't run in the same fixed timestep.")]
         public bool frameskipMeshUpdate = true;
 
+        [HideInInspector]
         public float timeOffset = 1 / 120f;
 
         #endregion
@@ -66,7 +67,7 @@ namespace Spine.Unity
             if (maxFrameSkip < 1) maxFrameSkip = 1;
         }
 
-        void Awake()
+        void OnEnable()
         {
             requiresNewMesh = true;
             accumulatedTime = timeOffset;
