@@ -109,8 +109,8 @@ namespace Spine.Unity
             float deltaAnimTime = animationTime - lastAnimTime;
 			float deltaTrackTime = trackTime - lastTrackTime;
 
-            Debug.Log(string.Format("Unity Time: {0}, delta|FPS: {1}|{2}. Frames: {3}, animT|trackT: {4}|{5}. dAnimT|dTrackT{6}|{7}",
-                Time.time, Time.deltaTime, 1f / Time.deltaTime, frames, animationTime, trackTime, deltaAnimTime, deltaTrackTime));
+            Debug.Log(string.Format("Unity Time: {0}, delta|FPS: {1}|{2}. Frames: {3}, animT|trackT: {4}|{5}. dAnimT|dTrackT{6}|{7} FrameNo:{8}",
+                Time.time, Time.deltaTime, 1f / Time.deltaTime, frames, animationTime, trackTime, deltaAnimTime, deltaTrackTime, Time.frameCount));
 		}
 
 		void LateUpdate()
