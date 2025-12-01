@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using Sample.Scripts;
 using UnityEngine;
 
 public class DemoPlayer : MonoBehaviour
@@ -26,16 +25,13 @@ public class DemoPlayer : MonoBehaviour
     {
         while (true)
         {
-            
             //Simulate get from pool
             fakePropellerItem.transform.parent = null;
-            Debug.Log("Get from pool and play animation "+fakePropellerItem.name);
             await fakePropellerItem.PlayCreationClip(destroyCancellationToken);
 
             await UniTask.Delay(1000);
             //Mimic removal
             fakePropellerItem.transform.parent = fakePool.transform;
-            Debug.Log("Back to pool "+fakePropellerItem.name);
             fakePropellerItem.OnBackToPool();
             await UniTask.Delay(1000);
         }
