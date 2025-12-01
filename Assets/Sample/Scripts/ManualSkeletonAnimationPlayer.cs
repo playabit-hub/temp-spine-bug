@@ -35,7 +35,7 @@ namespace Spine.Unity
     // This component will disable that SkeletonAnimation component to prevent it from calling its own Update and LateUpdate methods.
 
     [DisallowMultipleComponent]
-    public sealed class SkeletonAnimationFixedTimestep : MonoBehaviour
+    public sealed class ManualSkeletonAnimationPlayer : MonoBehaviour
     {
         #region Inspector
 
@@ -58,8 +58,11 @@ namespace Spine.Unity
 
         float accumulatedTime = 0;
         bool requiresNewMesh;
+		float lastTime = -1;
+		float lastAnimTime = 0;
+		float lastTrackTime = 0;
 
-        void OnValidate()
+		void OnValidate()
         {
             skeletonAnimation = GetComponent<SkeletonAnimation>();
             if (frameDeltaTime <= 0) frameDeltaTime = 1 / 60f;
@@ -78,6 +81,11 @@ namespace Spine.Unity
 
         void Update()
         {
+            if (lastTime == Time.time) {
+				return;
+			}
+			lastTime = Time.time;
+
             accumulatedTime += Time.deltaTime;
 
             float frames = 0;
@@ -94,13 +102,22 @@ namespace Spine.Unity
                 // Try-2 skeletonAnimation.Update(frames * frameDeltaTime + timeOffset);
                 requiresNewMesh = true;
             }
-        }
 
-        void LateUpdate()
+            TrackEntry trackEntry = skeletonAnimation.AnimationState.Tracks.Items[0];
+			float animationTime = trackEntry.AnimationTime;
+			float trackTime = trackEntry.TrackTime;
+            float deltaAnimTime = animationTime - lastAnimTime;
+			float deltaTrackTime = trackTime - lastTrackTime;
+
+            Debug.Log(string.Format("Unity Time: {0}, delta|FPS: {1}|{2}. Frames: {3}, animT|trackT: {4}|{5}. dAnimT|dTrackT{6}|{7}",
+                Time.time, Time.deltaTime, 1f / Time.deltaTime, frames, animationTime, trackTime, deltaAnimTime, deltaTrackTime));
+		}
+
+		void LateUpdate()
         {
             if (frameskipMeshUpdate && !requiresNewMesh) return;
 
-            skeletonAnimation.LateUpdate();
+            skeletonAnimation.Renderer.LateUpdate();
             requiresNewMesh = false;
         }
     }
